@@ -49,6 +49,7 @@ def QueueTriggerPokeReport(azqueue: func.QueueMessage):
     ):
         logger.info(f"Se aplicará un muestreo de {sample_size} registros.")
         import random
+        #Una mezcla aleatoria de los pokemons con tamaño sample_size
         pokemons = random.sample(pokemons, sample_size)
         logger.info(f"Muestreo aplicado: {sample_size} registros seleccionados.")
         logger.info(f"Total de Pokémon en CSV: {len(pokemons)}")
@@ -110,7 +111,7 @@ def generate_csv_to_blob(pokemon_entries: list) -> bytes:
 
             # Extraer habilidades
             abilities = [a["ability"]["name"] for a in data.get("abilities", [])]
-            abilities_str = ", ".join(abilities)
+            abilities_str = ", ".join(abilities) #Convertir a string separado por comas
 
             enriched_data.append({
                 "Name": name,
