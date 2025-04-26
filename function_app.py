@@ -107,6 +107,9 @@ def generate_csv_to_blob(pokemon_entries: list) -> bytes:
             data = response.json()
 
             # Extraer estadísticas
+            #"stats": [
+                #{"base_stat": 45, "stat": {"name": "hp"}},
+            #
             stats = {stat["stat"]["name"]: stat["base_stat"] for stat in data.get("stats", [])}
 
             # Extraer habilidades
